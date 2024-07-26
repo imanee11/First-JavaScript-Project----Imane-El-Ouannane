@@ -140,29 +140,23 @@ const signUp = () => {
     }
 
 
-
-
-
-
 //? if the user choose log in
 const logIn = () => {
-    
+    let email = prompt ("Enter your email to Log In")
+    let emailExist = dataBase.find(e => e.email == email)
+    if (emailExist) {
+        let passsword = prompt ("Enter your password to Log In")
+        let passswordExist = dataBase.find (e => e.password == passsword)
+        if (passswordExist) {
+            alert ("Loged in successfuly")
+        }else{
+            alert("passsword incccorect")
+        }
+    }else{
+        alert("the email you have been trying to login with doesn't exist in our dataBase")
+    } 
 }
-// if (askUser.toLowerCase() == answer2) {
-//     let email = prompt ("Enter your email to Log In")
-//     let emailExist = dataBase.find(e => e.email == email)
-//     if (emailExist) {
-//         let passsword = prompt ("Enter your password to Log In")
-//         let passswordExist = dataBase.find (e => e.password == passsword)
-//         if (passswordExist) {
-//             alert ("Loged in successfuly")
-//         }else{
-//             alert("passsword incccorect")
-//         }
-//     } else{
-//         alert("the email you have been trying to login with doesn't exist in our dataBase")
-//     }
-// }
+
 
 
 //? if the user choose to change the password
