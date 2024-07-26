@@ -70,6 +70,7 @@ const validateAge = (age) => {
     return age
 }
 
+
 //* password validate function
 const validatePassWord = (password) => {
     password = password.trim()
@@ -160,23 +161,28 @@ const logIn = () => {
 
 
 //? if the user choose to change the password
-// if (askUser.toLowerCase() == answer3) {
-//     let email = prompt ("Enter your email")
-//     let emailExistInDB = dataBase.find (e => e.email == email)
-//     if (emailExistInDB) {
-//         let changePassword = prompt ("Enter Your new password")
-//         // let newPass = dataBase.map(e => {
-//         //     if (e.changePassword == password) {
-//         //         return changePassword
-//         //     }
-//         // })
-//         dataBase.password = newPass
-//         // this.password = changePassword
-//         console.table(dataBase);
-//     } else {
-//         alert("the email you have been trying to login with doesn't exist in our dataBase")
-//     }
-// }
+const changePassword = () =>{
+    let email = prompt ("Enter your email to change your password")
+    let emailExistInDB = dataBase.find (e => e.email === email)
+    if (emailExistInDB) {
+        let newPassword = prompt ("Enter Your new password")
+
+        // make sure that the new password match the rules
+        newPassword = validatePassWord(newPassword)
+        if (!newPassword) {
+            alert("This password is invalide TRY AGAIN") 
+            return   
+        }
+    
+        // update the password in database
+        emailExistInDB.password = newPassword
+        alert("Password changed successfuly ")
+        console.table(dataBase);
+    } else {
+        alert("this email doesn't exist in our dataBase")
+    }
+}
+
 
 
 
