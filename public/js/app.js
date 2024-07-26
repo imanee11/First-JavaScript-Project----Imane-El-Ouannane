@@ -145,6 +145,9 @@ const signUp = () => {
 
 
 //? if the user choose log in
+const logIn = () => {
+    
+}
 // if (askUser.toLowerCase() == answer2) {
 //     let email = prompt ("Enter your email to Log In")
 //     let emailExist = dataBase.find(e => e.email == email)
