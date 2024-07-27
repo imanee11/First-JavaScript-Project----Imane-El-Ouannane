@@ -15,7 +15,9 @@ class Users {
         this.email = email
         this.age = age
         this.password = password
+        this.balance = 3000
     }
+
 }
 
 //? Create users for testing
@@ -141,15 +143,76 @@ const signUp = () => {
     }
 
 
+
+
+//* show services if the user choose log in
+
+//? withdraw Money function
+const withdrawMoney = (user) => {
+    let amount = parseInt (prompt ("Enter an amount"))
+    if (amount < user.balance) {
+        user.balance = user.balance - amount
+        alert(`You have now ${user.balance}`)
+        console.log(`The rest ${user.balance}`);
+        console.table(dataBase);
+    } else {
+        alert('not accepted')
+    }
+}
+
+//? deposit Money function
+
+
+const takeaLoan = () =>{
+
+}
+
+
+const invest = () =>{
+
+}
+
+
+const services = (user) =>{
+    let offers = prompt ("You want to Logout, Withdraw money, Deposit money, Take a loan, Invest, history? CHOOSE ONE")
+    switch (offers.toLowerCase()) {
+        case "log out":
+            alert("Logged out successfully")
+            signUp()
+            break;
+        case "withdraw money":
+            withdrawMoney(user);
+            break;
+        case "deposit money":
+            depositMoney(user);
+            break;
+        case "take a loan":
+            takeaLoan(user);
+            break;
+        case "invest":
+            invest(user);
+            break;
+        case "history":
+            break;
+        default:
+            break;
+    }
+
+}
+
+
+
 //? if the user choose log in
 const logIn = () => {
     let email = prompt ("Enter your email to Log In")
-    let emailExist = dataBase.find(e => e.email == email)
-    if (emailExist) {
-        let passsword = prompt ("Enter your password to Log In")
-        let passswordExist = dataBase.find (e => e.password == passsword)
-        if (passswordExist) {
+    let user = dataBase.find(e => e.email == email)
+    if (user) {
+        let userPassword = prompt ("Enter your password to Log In")
+        let passwordExist = dataBase.find (e => e.password == userPassword)
+        if (passwordExist) {
             alert ("Loged in successfuly")
+            alert(`Welcome ${user.fullName} Your Bank account balance is ${user.balance} DH`)
+            services(user)
         }else{
             alert("passsword incccorect")
         }
@@ -201,6 +264,12 @@ switch (askUser.toLowerCase()) {
     default:
         alert("EXIT");
 }
+
+
+
+
+
+
 
 
  
