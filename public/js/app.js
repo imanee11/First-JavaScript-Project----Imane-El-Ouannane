@@ -28,6 +28,9 @@ dataBase.push(imane, zahira)
 console.table(dataBase);
 
 
+
+
+
 //* fullName validate function
 
 const validFullName = (fullName) => {
@@ -144,6 +147,8 @@ const signUp = () => {
 
 
 
+
+    
 
 //* show services if the user choose log in
 
