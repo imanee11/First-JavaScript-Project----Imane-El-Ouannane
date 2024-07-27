@@ -182,6 +182,9 @@ const invest = () =>{
 
 }
 
+const history = () =>{
+
+}
 
 const services = (user) =>{
     let offers = prompt ("You want to Logout, Withdraw money, Deposit money, Take a loan, Invest, history? CHOOSE ONE")
@@ -203,6 +206,7 @@ const services = (user) =>{
             invest(user);
             break;
         case "history":
+            history(user);
             break;
         default:
             break;
