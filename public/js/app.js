@@ -161,7 +161,17 @@ const withdrawMoney = (user) => {
 }
 
 //? deposit Money function
-
+const depositMoney = (user) => {
+    let amount = parseInt (prompt("Enter an amount"))
+    if (amount <= 1000) {
+        user.balance = user.balance + amount
+        alert(`You have now ${user.balance}`)
+        console.log(`You have now ${user.balance}`);
+        console.table(dataBase);
+    } else {
+        alert('not accepted')
+    }
+}
 
 const takeaLoan = () =>{
 
