@@ -21,8 +21,8 @@ class Users {
 }
 
 //? Create users for testing
-let imane  = new Users ("Imane El Ouannane","imane@gmail.com",20,"123@","123@")
-let zahira  = new Users ("Zahira Janahi","zahira@gmail.com",20,"456@","456@")
+let imane  = new Users ("Imane El Ouannane","imane@gmail.com",20,"123@")
+let zahira  = new Users ("Zahira Janahi","zahira@gmail.com",20,"456@")
 
 dataBase.push(imane, zahira)
 console.table(dataBase);
@@ -69,7 +69,7 @@ const validateAge = (age) => {
     if (age.includes(' ')) {
         return false
     }
-    return age
+    return parseInt(age)
 }
 
 
